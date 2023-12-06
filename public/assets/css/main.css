@@ -1,3 +1,266 @@
+:root {
+    --dark-blue: rgb(45, 47, 76);
+    --blue: rgb(66, 74, 88) ;
+    --dark: rgb(49, 48, 55);
+    --dark-light: rgb(69, 68, 76);
+    --light-blue: rgb(232, 240, 243);
+    --light-gray: #ddd;
+    --gray: #bbb;
+    --black: #000;
+    --white: #fff;
+    --green: rgb(83, 153, 104);
+    --red: rgb(209, 56, 56);
+}
+
+@font-face{
+    font-family: 'regular';
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+@font-face{
+    font-family: 'summer';
+    src: url(../fonts/Summer-Vibes-OTF.otf);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 body {
-    background: gray;
+    background: var(--dark);
+    font-family: regular, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-family: summer, sans-serif;
+    color: var(--white);
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 300;    
+}
+
+main {
+    background-color: var(--dark-blue);
+    max-width: 1400px; 
+    height: 100vh;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 25% auto;
+}
+.left {
+    background-color: var(--dark-blue);
+}
+
+/***********************************************************/
+/*
+/* Rechter Teil mit dem Chat
+/*
+/**********************************************************/
+.right {
+    background-color: var(--dark-light);
+    display: grid;
+    grid-template-rows: 120px auto;
+    grid-template-columns: 30% auto;
+
+    & .header {
+        grid-column: span 2;
+        padding-bottom: 2rem;
+        background-color: var(--blue);
+    }
+}
+/***********************************************************/
+/*
+/* Personen Liste
+/*
+/**********************************************************/
+.peoples {
+    .search {
+        background-color: var(--dark-light);
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        & input[type="text"] {
+            background-color: var(--dark);
+            padding: .5rem .6rem;
+            border-radius: 25px;
+            width: 85%;
+            border: none;
+            color: var(--light-gray);
+        }
+        & span {
+            background-color: var(--dark);
+            height: 24px;
+            width: 24px;
+            color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+    }
+    .user {        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
+        padding: 1rem; 
+        .user-image {
+            flex: 1/1;
+        }
+        .user-name {
+            flex: 3;
+            display: flex;
+            flex-direction: column; 
+            & :first-child{
+                font-weight: 800;
+                color: var(--white);
+            }
+            & :last-child{
+                color: var(--gray);
+                font-size: 0.8rem;
+            }
+
+        }
+        .user-posts {
+            height: 24px;
+            width: 24px;
+            background-color: var(--green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: var(--white);
+           
+        }
+    }
+    
+}
+
+/***********************************************************/
+/*
+/* Chat bereich
+/*
+/**********************************************************/
+
+.chats {    
+    background-color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    .chat-title {
+        border-bottom: solid 1px var(--gray);
+        padding: 1rem 2rem;
+        display: flex;     
+        align-items: center;
+        justify-content: space-between;
+        .chat-status {
+            display: flex;
+            flex-direction: row;
+            margin-left: .8rem;
+            align-items: center;
+            gap: 0.4rem;
+            & :first-child {
+                color: var(--black);
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-right: 1rem;
+            }        
+            .chat-status__color{
+                display: inline-block;    
+                height: 10px;
+                width: 10px;             
+                background-color: var(--green);
+                border-radius: 100%;
+            } 
+            & :last-child {
+                color: var(--gray);
+            }       
+        }
+    }
+    .chats-in {
+        display: flex;
+        flex-direction: row;
+        margin: 0.5rem .8rem;
+        align-items: start;
+        gap: 0.5rem;
+        .user-image {
+            flex: 1/1;
+        }
+       .chat-item {
+           
+            display: flex;
+            flex-direction: column;
+            .chat-post {
+                background-color: var(--white);
+                color: var(--gray);
+                max-width: 20rem;
+                padding: .5rem 1rem;
+                border-radius: 12px;
+            }
+            .chat-date {
+                font-size: .8rem;
+                color: var(--gray);
+                letter-spacing: 1.2px;
+                margin-top: .2rem;
+            }
+        }
+    }
+    .chats-out {
+        display: flex;
+        flex-direction: row;
+        margin: 0.5rem .8rem;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 0.5rem;        
+        .user-image {
+            flex:1/1;
+        }     
+        .chat-item {
+            
+            display: flex;
+            flex-direction: column;
+            .chat-post {
+                background-color: var(--green);
+                color: var(--white);
+                max-width: 20rem;
+                padding: .5rem 1rem;
+                border-radius: 12px;
+            }
+            .chat-date {
+                font-size: .8rem;
+                color: var(--gray);
+                letter-spacing: 1.2px;
+                margin-top: .2rem;
+            }
+        }
+    }
+
+    .day-line {
+        width: 80%;
+        margin: auto;
+        border: solid 1px black;
+        text-align: center;
+        .day-line-date {
+            color: var(--gray);
+            position: relative;
+            & ::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 100;
+                height: 2px;
+                background-color: black;
+            }
+        }
+    }
+}
+
+.user-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
