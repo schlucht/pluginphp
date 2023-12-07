@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,20 @@
 <body>
     <main>
         <section class="left">
-            Left
+             <div class="left-user">
+                <img src="/assets/images/user2.jpg" alt="">
+                <h3 class="left-name">Schmid Lothar</h3>
+                <p class="left-email">web@mail.ch</p>
+             </div>
+             <div class="left-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="">Icon 1</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </section>
         <section class="right">
             <header class="header">
